@@ -1,0 +1,12 @@
+/_build
+/db
+/deps
+/*.ez
+erl_crash.dump
+/config/*.secret.exs
+dist
+.DS_Store
+bower_components
+assets/node_modules
+priv/static
+!priv/static/api_specs_v1.json

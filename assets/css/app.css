@@ -1,0 +1,45 @@
+body {
+    padding-top: 10px;
+}
+
+main {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.row {
+    padding-bottom: 10px;
+}
+
+img.logo {
+    height: 128px;
+}
+
+div.polaroid {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+div.polaroid>.text {
+    padding: 10px;
+}
+
+a.share-logo:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 5px;
+    }
+
+    .main {
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    div.polaroid {
+        box-shadow: none;
+    }
+}

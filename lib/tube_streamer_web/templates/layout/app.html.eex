@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="скачать аудио YouTube, аудиопотоки, слушать музыку, музыка">
+
+    <meta name="yandex-verification" content="5c2b5df26d9871eb" />
+
+    <%# stream page with meta data %>
+    <%= if stream_loaded?(@conn) do %>
+      <meta property="og:title" content="<%= @title %>" />
+      <meta property="og:image" content="<%= @cover %>" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="<%= @title %>" />
+      <meta name="twitter:description" content="Listen on Tube Streamer" />
+      <meta name="twitter:image" content="<%= @cover %>" />
+    <%= end %>
+
+    <link href="<%= static_path(@conn, "/favicons/apple-touch-icon-152x152.png") %>" rel="apple-touch-icon-precomposed" sizes="152x152">
+    <link href="<%= static_path(@conn, "/favicons/favicon-196x196.png") %>" rel="icon" sizes="196x196">
+    <link href="<%= static_path(@conn, "/favicons/favicon-32x32.png") %>" rel="icon" sizes="32x32">
+
+    <title>Tube Streamer</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="header">
+        <a class="navbar-brand" href="<%= page_path @conn, :index %>">
+          Tube Streamer
+        </a>
+      </h1>
+
+      <br>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+    </div>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

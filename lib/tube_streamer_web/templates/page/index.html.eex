@@ -1,0 +1,37 @@
+<br>
+<div class="row">
+    <img class="logo" src="<%= static_path(@conn, "/images/logo.jpg") %>">
+    <p class="lead">
+        Сервис для получения аудио дорожки с YouTube видео. 
+        <br>
+        Идеально для прослушивания подкастов и микстейпов. 
+        <br>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="polaroid">
+            <img src="<%= static_path(@conn, "/images/screenshot1.jpg") %>">
+            <hr class="hidden-xs">
+            <div class="text">
+                <p class="lead">
+                    <a href="https://chrome.google.com/webstore/detail/tube-streamer/fcelmhmkblbeajadfgikcicpmgpmpapb">Скачать</a> расширение для Google Chrome.
+                </p>
+            </div>
+            <hr class="shown-xs">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="polaroid">
+            <img src="<%= static_path(@conn, "/images/screenshot2.jpg") %>">
+            <hr class="hidden-xs">
+            <div class="text">
+                <p class="lead">
+                    <a href="https://play.google.com/store/apps/details?id=org.nikitenko.youtube_audio">Скачать</a> приложение для Android.
+                </p>
+            </div>
+            <hr class="shown-xs">
+        </div>
+    </div>
+</div>

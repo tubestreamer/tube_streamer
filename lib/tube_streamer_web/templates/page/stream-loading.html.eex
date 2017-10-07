@@ -1,0 +1,8 @@
+<img id="spinner" src="<%= static_path(@conn, "/images/spinner.gif") %>">
+<h3 id="error" style="display: none">Ошибка! Такого стрима тут нет :(</h3>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){  
+    require("js/app.js").Loader.run("<%= @url %>");
+  });
+</script>

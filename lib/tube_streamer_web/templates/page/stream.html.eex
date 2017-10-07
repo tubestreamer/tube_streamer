@@ -1,0 +1,12 @@
+<img width="240" height="180" src=<%= @cover %>>
+<h3><%= @title %></h3>
+<audio controls name="media" src=<%= @stream %>></audio>
+
+<br>
+
+<a class="share-logo" href="https://vk.com/share.php?url=<%= page_url @conn, :stream, @id %>" target="_blank">
+  <img src="<%= static_path(@conn, "/images/vklogo.png") %>">
+</a>
+<a class="share-logo" href="https://twitter.com/intent/tweet?text=<%= page_url @conn, :stream, @id %> @tubestreamer" target="_blank">
+  <img src="<%= static_path(@conn, "/images/twitterlogo.png") %>">
+</a>
