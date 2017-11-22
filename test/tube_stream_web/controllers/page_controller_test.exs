@@ -2,7 +2,8 @@ defmodule TubeStreamerWeb.PageControllerTest do
   use TubeStreamerWeb.ConnCase, async: true
 
   @url "https://www.youtube.com/watch?v=ZPfNgIj2eNU"
-  @id  @url |> Base.encode32()
+  @id1  @url |> Base.encode32()
+  @id2  @url |> Base.url_encode64()
 
   describe "index/2" do
     test "responds with 200" do
@@ -20,7 +21,16 @@ defmodule TubeStreamerWeb.PageControllerTest do
     test "responds with 200 and no meta" do
       # no meta
       response = build_conn()
-                 |> get(page_path(build_conn(), :stream, @id))
+                 |> get(page_path(build_conn(), :stream, @id1))
+      assert 200 == response.status
+      assert not (response.resp_body =~ "<meta property=\"og:title\" content=\"")
+      assert response.resp_body =~ "Loader.run("
+    end
+
+    test "responds with 200 and no meta when url is base64 encoded" do
+      # no meta
+      response = build_conn()
+                 |> get(page_path(build_conn(), :stream, @id2))
       assert 200 == response.status
       assert not (response.resp_body =~ "<meta property=\"og:title\" content=\"")
       assert response.resp_body =~ "Loader.run("
@@ -32,7 +42,7 @@ defmodule TubeStreamerWeb.PageControllerTest do
 
       # meta
       response = build_conn()
-                 |> get(page_path(build_conn(), :stream, @id))
+                 |> get(page_path(build_conn(), :stream, @id1))
       assert 200 == response.status
       assert response.resp_body =~ "<meta property=\"og:title\" content=\"" 
     end

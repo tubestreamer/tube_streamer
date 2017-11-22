@@ -1,15 +1,26 @@
 defmodule TubeStreamerWeb.Api.V1.StreamControllerTest do
   use TubeStreamerWeb.ConnCase, async: true
 
+  @bools [:true, false]
+
   @url1 "https://www.youtube.com/watch?t=4&v=BaW_jenozKc"
-        |> Base.encode32()
+        |> Base.encode32(padding: Enum.random(@bools))
   @url2 "https://vimeo.com/233130406"
-        |> Base.encode32()
+        |> Base.encode32(padding: Enum.random(@bools))
+  @url3 "https://www.youtube.com/watch?t=4&v=BaW_jenozKc"
+        |> Base.url_encode64(padding: Enum.random(@bools))
+
 
   describe "index/2" do
     test "responds with redirect" do
       response = build_conn()
                  |> get(stream_path(build_conn(), :index, @url1))
+      assert 302 == response.status
+    end
+
+    test "responds with redirect when url is base64 encoded" do
+      response = build_conn()
+                 |> get(stream_path(build_conn(), :index, @url3))
       assert 302 == response.status
     end
 
@@ -38,6 +49,14 @@ defmodule TubeStreamerWeb.Api.V1.StreamControllerTest do
     test "responds with proper data from youtube" do
       response = build_conn()
                  |> get(stream_path(build_conn(), :info, @url1))
+      assert 200 == response.status
+      assert 10 == (response.resp_body |> Poison.decode!())["duration"] 
+      assert 0 < TubeStreamer.Stream.MetaCache.size()
+    end
+
+    test "responds with proper data from youtube when url is base54 encoded" do
+      response = build_conn()
+                 |> get(stream_path(build_conn(), :info, @url3))
       assert 200 == response.status
       assert 10 == (response.resp_body |> Poison.decode!())["duration"] 
       assert 0 < TubeStreamer.Stream.MetaCache.size()

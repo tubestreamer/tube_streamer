@@ -19,7 +19,7 @@ defmodule TubeStreamer.DlWorker do
       {data, 0} -> 
         spawn(fn ->
           [title, link, cover, duration | _] = String.split(data, "\n")
-          id = Base.encode32(url)
+          id = Base.url_encode64(url, padding: false)
           meta = %{id: id,
                    stream: stream(id, url, link),
                    title: title, 

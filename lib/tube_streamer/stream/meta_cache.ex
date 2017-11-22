@@ -16,8 +16,7 @@ defmodule TubeStreamer.Stream.MetaCache do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 
-  def lookup(id) do
-    url = Base.decode32!(id)
+  def lookup(url) do
     case Ets.lookup(@table, url) do
       [] -> :not_found
       [{_, result, _}] -> result
