@@ -7,6 +7,10 @@ main {
     text-align: center;
 }
 
+footer {
+    padding-bottom: 20px;
+}
+
 .row {
     padding-bottom: 10px;
 }
