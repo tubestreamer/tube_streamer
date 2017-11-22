@@ -1,0 +1,12 @@
+language: elixir
+elixir:
+  - 1.5.2
+otp_release:
+  - 20.1
+sudo: false
+before_install:
+  - mkdir bin
+  - wget https://yt-dl.org/downloads/latest/youtube-dl -O bin/youtube-dl
+  - chmod a+rx bin/youtube-dl
+  - PATH=$PATH:bin
+  - export PATH

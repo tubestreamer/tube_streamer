@@ -1,5 +1,7 @@
 # TubeStreamer
 
+[![Build Status](https://travis-ci.org/tubestreamer/tube_streamer.svg?branch=master)](https://travis-ci.org/tubestreamer/tube_streamer)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
