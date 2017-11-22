@@ -1,37 +1,53 @@
 <br>
-<div class="row">
+<div class="jumbotron row">
     <img class="logo" src="<%= static_path(@conn, "/images/logo.jpg") %>">
     <p class="lead">
         Сервис для получения аудио дорожки с YouTube видео. 
         <br>
-        Идеально для прослушивания подкастов и микстейпов. 
+        Идеально для прослушивания подкастов, микстейпов и скачивания музыки. 
         <br>
     </p>
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-        <div class="polaroid">
-            <img src="<%= static_path(@conn, "/images/screenshot1.jpg") %>">
-            <hr class="hidden-xs">
-            <div class="text">
-                <p class="lead">
-                    <a href="https://chrome.google.com/webstore/detail/tube-streamer/fcelmhmkblbeajadfgikcicpmgpmpapb">Скачать</a> расширение для Google Chrome.
-                </p>
-            </div>
-            <hr class="shown-xs">
-        </div>
+  <div class="col-md-4 col-sm-4">
+  <div class="media">
+    <div class="media-left">
+      <a href="https://play.google.com/store/apps/details?id=org.nikitenko.youtube_audio">
+        <img class="media-object" src="<%= static_path(@conn, "/images/android-logo.png") %>" alt="Android">
+      </a>
     </div>
-    <div class="col-md-6">
-        <div class="polaroid">
-            <img src="<%= static_path(@conn, "/images/screenshot2.jpg") %>">
-            <hr class="hidden-xs">
-            <div class="text">
-                <p class="lead">
-                    <a href="https://play.google.com/store/apps/details?id=org.nikitenko.youtube_audio">Скачать</a> приложение для Android.
-                </p>
-            </div>
-            <hr class="shown-xs">
-        </div>
+    <div class="media-body">
+      <h4 class="media-heading">Android прложение</h4>
+      Позволяет слушать аудио поток c YouTube через <a href="https://play.google.com/store/apps/details?id=org.nikitenko.youtube_audio">музыкальный проигрыватель</a>. Работает в фоне и для экономит батарейку.
     </div>
+  </div>
+  </div>
+
+  <div class="col-md-4 col-sm-4">
+  <div class="media">
+    <div class="media-left">
+      <a href="https://chrome.google.com/webstore/detail/tube-streamer/fcelmhmkblbeajadfgikcicpmgpmpapb">
+        <img class="media-object" src="<%= static_path(@conn, "/images/chromewebstore.png") %>" alt="Android">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">Google Chrome расширение</h4>
+      Для получения и <a href="https://chrome.google.com/webstore/detail/tube-streamer/fcelmhmkblbeajadfgikcicpmgpmpapb">скачивания</a> аудио стрима через веб-браузер.
+    </div>
+  </div>
+  </div>
+
+  <div class="col-md-4 col-sm-4">
+  <div class="media">
+    <div class="media-left">
+      <a href="https://t.me/TubeStreamerBot">
+        <img class="media-object" src="<%= static_path(@conn, "/images/telegram-logo.png") %>" alt="Android">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">Telegram бот</h4>
+      Inline бот <a href="https://t.me/TubeStreamerBot">@TubeStreamerBot</a> превратит YouTube видео в аудио стрим.
+    </div>
+  </div>
 </div>

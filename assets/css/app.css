@@ -10,19 +10,23 @@ main {
 .row {
     padding-bottom: 10px;
 }
+.row.jumbotron {
+    background-color: initial;
+    margin-bottom: 40px;
+}
+
+.media {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
 img.logo {
-    height: 128px;
+    height: 192px;
+    margin-bottom: 20px;
 }
 
-div.polaroid {
-    margin-top: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-}
-
-div.polaroid>.text {
-    padding: 10px;
+img.media-object {
+    height: 96px;
 }
 
 a.share-logo:hover {
@@ -37,9 +41,5 @@ a.share-logo:hover {
     .main {
         padding-top: 20px;
         text-align: center;
-    }
-
-    div.polaroid {
-        box-shadow: none;
     }
 }

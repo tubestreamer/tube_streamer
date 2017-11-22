@@ -41,6 +41,12 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
+
+      <hr>
+      <footer>
+        Contact us via <a href="https://twitter.com/tubestreamer">Twitter</a> or fork on 
+        <a href="https://github.com/tubestreamer">GitHub</a>.
+      </footer>
     </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
