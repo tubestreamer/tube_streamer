@@ -10,3 +10,4 @@ bower_components
 assets/node_modules
 priv/static
 !priv/static/api_specs_v1.json
+cache.dets

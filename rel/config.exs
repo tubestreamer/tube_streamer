@@ -37,6 +37,7 @@ environment :prod do
   set include_erts: false
   set include_src: false
   set cookie: :">YO`Z=FzCr69`x@I|dtSdj1k(oQ=[0S93creehHRO=lG37!<0_F5{*Amtvno_%1v"
+  set pre_start_hook: "rel/hooks/create_data_dir.sh"
 end
 
 # You may define one or more releases in this file.

@@ -22,6 +22,8 @@ config :tube_streamer, TubeStreamerWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: "${SECRET_KEY_BASE}"
 
+config :tube_streamer, filename: "/srv/data/tube_streamer/meta.dets"
+
 # Do not print debug messages in production
 config :logger, level: :info
 
