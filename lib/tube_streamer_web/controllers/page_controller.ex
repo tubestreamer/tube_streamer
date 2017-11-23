@@ -10,10 +10,11 @@ defmodule TubeStreamerWeb.PageController do
   end
 
   def stream(conn, %{"url" => url} = _params) do
-    case TubeStreamer.Stream.MetaCache.lookup(url) do
-      stream = %{} ->
+    case TubeStreamer.Stream.MetaCache.member?(url) do
+      true ->
+        {:ok, stream} = TubeStreamer.Stream.MetaCache.get(url)
         render conn, "stream.html", stream
-      :not_found ->
+      false ->
         id = Base.url_encode64(url, padding: false)
         render conn, "stream-loading.html", url: id
     end
