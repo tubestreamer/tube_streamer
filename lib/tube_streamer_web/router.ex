@@ -2,7 +2,7 @@ defmodule TubeStreamerWeb.Router do
   use TubeStreamerWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "xml"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
@@ -21,6 +21,7 @@ defmodule TubeStreamerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/",             PageController, :index
+    get "/sitemap.xml",  SitemapController, :index
     get "/stream/:url",  PageController, :stream
   end
 

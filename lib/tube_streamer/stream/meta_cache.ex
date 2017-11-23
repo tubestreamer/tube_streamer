@@ -44,6 +44,14 @@ defmodule TubeStreamer.Stream.MetaCache do
 
   def list(), do: Dets.traverse(@table, fn(val) -> {:continue, val} end)
 
+  def take(n \\ 1000), do:
+    Dets.first(@table) |> take(n, [])
+
+  defp take(_, 0, acc), do: acc
+  defp take(:"$end_of_table", _, acc), do: acc
+  defp take(key, n, acc), do: 
+    Dets.next(@table, key) |> take(n-1, [hd(Dets.lookup(@table, key)) | acc])
+
   def init(args) do
     Process.flag(:trap_exit, true)
     opts =[file: args[:filename], type: :set]
