@@ -6,7 +6,9 @@ defmodule TubeStreamerWeb.SitemapController do
   alias TubeStreamer.Stream.MetaCache
 
   def index(conn, _params) do
-    locations = ["http://tubestreamer.ru/" | 
+    locations = ["http://tubestreamer.ru/",
+                 "http://tubestreamer.ru/?locale=ru",
+                 "http://tubestreamer.ru/?locale=en" | 
                  (for {_, %{id: id}, _} <- MetaCache.take(), 
                   do: page_url(conn, :stream, id))]
     render conn, "index.xml", locations: locations
