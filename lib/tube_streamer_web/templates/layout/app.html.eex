@@ -44,7 +44,9 @@
 
       <hr>
       <footer>
-        Contact us via <a href="https://twitter.com/tubestreamer">Twitter</a> or fork on 
+        <%= gettext "Свяжитесь с нами в" %>
+        <a href="https://twitter.com/tubestreamer">Twitter</a>
+        <%=gettext "или форкните на" %>
         <a href="https://github.com/tubestreamer">GitHub</a>.
       </footer>
     </div>

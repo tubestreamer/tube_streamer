@@ -1,0 +1,71 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:5
+msgid "Сервис для получения аудио дорожки с YouTube видео."
+msgstr "A service for getting an audio stream of YouTube video."
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:21
+msgid "Android приложение"
+msgstr "Android application"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:7
+msgid "Идеально для прослушивания подкастов, микстейпов и скачивания музыки."
+msgstr "Good for listening podcasts, mixtapes and downloading music."
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:39
+msgid "Google Chrome расширение"
+msgstr "Google Chrome extension"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:58
+msgid "Inline бот"
+msgstr "Inline bot"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:57
+msgid "Telegram бот"
+msgstr "Bot for Telegram"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:40
+msgid "Для получения и"
+msgstr "For getting and"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:22
+msgid "Позволяет слушать аудио поток c YouTube через"
+msgstr "Allows listening to an audio stream from YouTube through"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:44
+msgid "аудио стрима через веб-браузер."
+msgstr "an audio stream via the web-browser."
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:24
+msgid "музыкальный проигрыватель."
+msgstr "the music player."
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:60
+msgid "превратит YouTube видео в аудио стрим."
+msgstr "makes a YouTube video to an audio stream."
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:42
+msgid "скачивания"
+msgstr "downloading"
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:26
+msgid "Работает в фоне и экономит заряд аккамулятора."
+msgstr "Works in the background and saves the battery."
+
+#: lib/tube_streamer_web/templates/layout/app.html.eex:47
+msgid "Свяжитесь с нами в"
+msgstr "Contact us via"
+
+#: lib/tube_streamer_web/templates/layout/app.html.eex:49
+msgid "или форкните на"
+msgstr "or fork on"

@@ -1,10 +1,30 @@
-<br>
+<div class="pull-right">
+  <ol class="breadcrumb">
+    <li class="<%= is_ru?(@conn) |> active? %>">
+      <%= if not is_ru?(@conn) do %>
+        <a href="/?locale=ru">Русский</a>
+      <% else %>
+        Русский
+      <% end %>
+      </li>
+      <li class="<%= is_en?(@conn) |> active? %>">
+      <%= if not is_en?(@conn) do %>
+        <a href="/?locale=en">English</a>
+      <% else %>
+        English
+      <% end %>
+      </li>
+  </ol>
+</div>
+
+<div class="row"></div>
+
 <div class="jumbotron row">
     <img class="logo" src="<%= static_path(@conn, "/images/logo.jpg") %>">
     <p class="lead">
-        Сервис для получения аудио дорожки с YouTube видео. 
+        <%= gettext "Сервис для получения аудио дорожки с YouTube видео." %>
         <br>
-        Идеально для прослушивания подкастов, микстейпов и скачивания музыки. 
+        <%= gettext "Идеально для прослушивания подкастов, микстейпов и скачивания музыки." %>
         <br>
     </p>
 </div>
@@ -18,8 +38,12 @@
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading">Android приложение</h4>
-      Позволяет слушать аудио поток c YouTube через <a href="https://play.google.com/store/apps/details?id=org.nikitenko.youtube_audio">музыкальный проигрыватель</a>. Работает в фоне и для экономит батарейку.
+      <h4 class="media-heading"><%= gettext "Android приложение" %></h4>
+        <%= gettext "Позволяет слушать аудио поток c YouTube через" %>
+        <a href="https://play.google.com/store/apps/details?id=org.nikitenko.youtube_audio">
+          <%= gettext "музыкальный проигрыватель." %>
+        </a>
+        <%= gettext "Работает в фоне и экономит заряд аккамулятора." %>
     </div>
   </div>
   </div>
@@ -32,8 +56,12 @@
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading">Google Chrome расширение</h4>
-      Для получения и <a href="https://chrome.google.com/webstore/detail/tube-streamer/fcelmhmkblbeajadfgikcicpmgpmpapb">скачивания</a> аудио стрима через веб-браузер.
+      <h4 class="media-heading"><%= gettext "Google Chrome расширение" %></h4>
+      <%= gettext "Для получения и" %>
+      <a href="https://chrome.google.com/webstore/detail/tube-streamer/fcelmhmkblbeajadfgikcicpmgpmpapb">
+        <%= gettext "скачивания" %>
+      </a> 
+      <%= gettext "аудио стрима через веб-браузер." %>
     </div>
   </div>
   </div>
@@ -46,8 +74,10 @@
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading">Telegram бот</h4>
-      Inline бот <a href="https://t.me/TubeStreamerBot">@TubeStreamerBot</a> превратит YouTube видео в аудио стрим.
+      <h4 class="media-heading"><%= gettext "Telegram бот" %></h4>
+      <%= gettext "Inline бот" %>
+      <a href="https://t.me/TubeStreamerBot">@TubeStreamerBot</a> 
+      <%= gettext "превратит YouTube видео в аудио стрим." %>
     </div>
   </div>
 </div>

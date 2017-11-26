@@ -1,0 +1,71 @@
+## This file is a PO Template file.
+##
+## `msgid`s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+msgid ""
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:5
+msgid "Сервис для получения аудио дорожки с YouTube видео."
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:21
+msgid "Android приложение"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:7
+msgid "Идеально для прослушивания подкастов, микстейпов и скачивания музыки."
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:39
+msgid "Google Chrome расширение"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:58
+msgid "Inline бот"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:57
+msgid "Telegram бот"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:40
+msgid "Для получения и"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:22
+msgid "Позволяет слушать аудио поток c YouTube через"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:44
+msgid "аудио стрима через веб-браузер."
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:24
+msgid "музыкальный проигрыватель."
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:60
+msgid "превратит YouTube видео в аудио стрим."
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:42
+msgid "скачивания"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/page/index.html.eex:26
+msgid "Работает в фоне и экономит заряд аккамулятора."
+msgstr ""
+
+#: lib/tube_streamer_web/templates/layout/app.html.eex:47
+msgid "Свяжитесь с нами в"
+msgstr ""
+
+#: lib/tube_streamer_web/templates/layout/app.html.eex:49
+msgid "или форкните на"
+msgstr ""

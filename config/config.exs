@@ -13,6 +13,8 @@ config :tube_streamer, TubeStreamerWeb.Endpoint,
   pubsub: [name: TubeStreamer.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :tube_streamer, TubeStreamerWeb.Gettext, default_locale: "en"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
