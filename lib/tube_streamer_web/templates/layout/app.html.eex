@@ -9,6 +9,7 @@
     <meta name="keywords" content="скачать аудио YouTube, аудиопотоки, слушать музыку, музыка">
 
     <meta name="yandex-verification" content="5c2b5df26d9871eb" />
+    <meta name="google-site-verification" content="KH4MoBrS26V9vFiqgvyDfhjvGYY3NdOX7SrRmyYruFU" />
 
     <%# stream page with meta data %>
     <%= if stream_loaded?(@conn) do %>
