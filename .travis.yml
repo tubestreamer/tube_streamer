@@ -1,12 +1,33 @@
 language: elixir
-elixir:
-  - 1.5.2
-otp_release:
-  - 20.1
 sudo: false
+services:
+    - docker
+elixir:
+    - 1.5.2
+otp_release:
+    - 20.1.5
 before_install:
-  - mkdir bin
-  - wget https://yt-dl.org/downloads/latest/youtube-dl -O bin/youtube-dl
-  - chmod a+rx bin/youtube-dl
-  - PATH=$PATH:bin
-  - export PATH
+    - mkdir bin
+    - wget https://yt-dl.org/downloads/latest/youtube-dl -O bin/youtube-dl
+    - chmod a+rx bin/youtube-dl
+    - PATH=$PATH:bin
+    - export PATH
+before_script:
+    - nvm install 8.9.1 && nvm use 8.9.1
+    - cd assets && npm install && cd -
+after_success:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - export REPO=surik/tube_streamer
+    - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH;
+      else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+    - export TAG=`if [ "$BRANCH" == "master" ]; then echo "latest"; else echo $BRANCH;
+      fi`
+    - make image
+    - docker tag $REPO:$COMMIT $REPO:$TAG
+    - docker push $REPO
+env:
+    global:
+        - COMMIT=${TRAVIS_COMMIT::8}
+        - secure: CCgMemoeyXNTqjWa2ZKEYJd1Ou7ZU53HN5jMBdl/Y2QSB/p+TUzsO6OsbgOX8H0zfEVd09yN4hEaRiqF697P35B6QGi0TUc0cl40rSCVB40Kmew5KdjD7PGR9ZnCSg3R3StLilOsYRvnLnNJ1WMN0m+stO27bAEevJptDlnhakPo+r76qvCR7OYU0r7eeKq04wjfQvfcz9awjCeBkOHsg17HfV7hrYZ83KV1Iyvj7LMEYUYoXqMf2o7I6FWL4hXyaBteH4XPEDib7FVpHcfa8w84bl//riBXmHleCuDv9G0UoHBHUVod18cEwyy+IB7iPBbIUiD2RQqqxN+n9cCXi+34PwQ0VgFc9Kpzs5HT5sL+eOgtDzsRYKh23hYQjDCK/nKSNkju2rJUbY3Duyb0eqG3Aq+7cXOVuHUhJ08ERFfVVpsvyTVj1F/DNgdAVLSdJAHsxVjDVTHsOC+FwXaoakiMh/bOQKgZbY+oYkvKKQlhAoDrMbbgYtKnoMUfYTSSTHS75mOeY6VzLWX42rnYQfg3M1EUQdNUy+M2i8iPrhKOra+eo0AQLwh6xPIvDzgWrMZb2BgV6kVg+z8NakKlGtruNGmEZFhinZsil27MElRQGI5oJi9HDJOYrFIoNeNEHRxiisNBVN2YTNmJN3lH4lD/Bk6FvZb0t8N6dhPMAEE=
+        - secure: GQZTOD+pzpNlyFd2++sLZ8LEZaXJhCdACF7b7sxEXkLvN61aNbQ6vVhnlY/TYnFXKWSPmBs7Ucb2TSwCq9ih+7sIi3YWUF2jDPQoChQTF2rbQfsvahFPuvkghL7sbLGq61YFrNjBqoY1Wk9KT7bhn7C74oz62VPH7CgWzwa08Gp5PED1e9bxrem/mu8Vhv/i8PaJhKI2MqzTiPsAoqMR6tIEVIP/iET1uuVzZM8wHi1Zy/KYPXFEBBqlkNNf7V2ANhf05Wty6YbHDv0fNqZu8Xj92qpyWTXLXfAXF8Qsx/oZXymXfGBNBVzJ7Bi5Z92inj7kkk76S7QQtraL3U6FPIk2SnWqVcPyJg90T17ztOlH6gc7EidvsHbuKemn5Zwp1L5Cxk7BGoytXBZwz1ATyXL63OU61bM50vBlQN/TYIlET7Sii3Sse+cmC6uX6gDIyd9iAHh9UxEXuQard/gVwPHlXyfulDpqy10fQQh7zPPgdvsl+yXoGEfl7xaH+9ExRyfCuKKeYAGcgqw2yvRpZ7jY6iv0BUEm1ypW+y8/pXMO2nt4VacKEafgpHyrEvY9Um7vwT2XEuDFphMfgyBn0ABWL1rfE77jOKUgni0rRDGtPCqrgRVK9MQ9WTfMk7lA/j9Ikri5nWCioPEtgEx8Jcn8GeqwcIXVZkDiLTR/r0E=
+        - secure: I64PIXj+qlY9wD/GDNWhkP+3fOXDyZCkKVlucfXXkpuAEp+yv2H0wjjvoAEuDcNza4ZPLAiXiVl2LONr/PzPk9hwiaF/ikWjUDq/HYhGKg4s2U1cp2fdDyTUD6mu5sLjBBLwaOi28pDv+3An6Nlqgcf8RJZ0g6MExBPV5vAyx1eSTvQnI1QhHwdEBfCGgKJsRrf8CBs4r1Yqmuq01uKtRC5f+U8kHhFJJ/vDPyAsMJRRYI34wKegzKLcF9+ZXs2WNqjk5r7GsZMGmDdHy5iqMQeyOm9NO5jkEmMGyYZlqTWFthvG7900+QDQ24ZFUkGYsTZt3tOJlnCWlcq2WJ5S+HV300i4VumvxrPH3OF8wd9gJi55vuKb0KZtpX2FNlcEmJJDHFFajl0RDLsfRJtK+79FMSdIsRZ1jDmdlQBPbuN8G6NMSlg+fJtk0g0QNepg3YBlIaytvotC1sx98HQvZl85lcQzmmesGt4I10qd0dtbf2Af/h9vi/eOTdewyHUMPXIbCc3rbBIGmjf/XkKn5g8mcmMxP6FjK007iaLeXMbd2jjvcejA2dIZtETI5AnwX18xMYBe7pRv8x43KlAmlx4nLCD4V4oMF6k+QqCyKcTxTXya/kb+fklmsQ3X3XMf4+VrdvHgSO1l6MLlbTgb0RYvBt7z1t+nhAiArkZ1EGE=
