@@ -1,4 +1,4 @@
-FROM        bitwalker/alpine-erlang:20.1.3
+FROM        20.3.1-alpine
 
 
 RUN         apk update && \
