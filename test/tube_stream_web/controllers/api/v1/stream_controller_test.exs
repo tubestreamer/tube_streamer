@@ -62,6 +62,7 @@ defmodule TubeStreamerWeb.Api.V1.StreamControllerTest do
       assert 0 < TubeStreamer.Stream.MetaCache.size()
     end
 
+    @tag :skip
     test "responds with proper data from vimeo" do
       response = build_conn()
                  |> get(stream_path(build_conn(), :info, @url2))
