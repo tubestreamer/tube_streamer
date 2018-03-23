@@ -4,7 +4,7 @@ defmodule TubeStreamer.Stream.MetaCache do
   alias :dets, as: Dets
   alias :poolboy, as: Poolboy
 
-  @ttl      60*60*24*30 # 30 days
+  @ttl      60*60*24*1  # 1 day
   @timeout  60*60*1     # 1 hour
 
   @table    :meta_cache_table
