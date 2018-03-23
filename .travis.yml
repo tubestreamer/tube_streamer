@@ -5,7 +5,7 @@ services:
 elixir:
     - 1.6.3
 otp_release:
-    - 20.3.1
+    - 20.3.2
 before_install:
     - mkdir bin
     - wget https://yt-dl.org/downloads/2017.11.06/youtube-dl -O bin/youtube-dl

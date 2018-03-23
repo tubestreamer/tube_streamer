@@ -1,4 +1,4 @@
-FROM        20.3.1-alpine
+FROM        erlang:20.3.2-alpine
 
 
 RUN         apk update && \
