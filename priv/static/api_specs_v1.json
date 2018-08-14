@@ -1,0 +1,102 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Tube Streamer API",
+        "description": "Version 1 of API for Tube Streamer",
+        "version": "1"
+    },
+    "basePath": "/api/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/stream/{url}": {
+            "get": {
+                "description": "This Method returns audio stream by given URL",
+                "tags": [
+                    "Stream API"
+                ],
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "path",
+                        "required": true,
+                        "description": "Base32 or URLBase64 encoded URL to youtube, vimeo...",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful stream. Data will be send chunked."
+                    },
+                    "302": {
+                        "description": "Stream is available by link from Location header."
+                    },
+                    "404": {
+                        "description": "Bad URL."
+                    },
+                    "429": {
+                        "description": "Too many parallel streams"
+                    }
+                }
+            }
+        },
+        "/info/{url}": {
+            "get": {
+                "description": "This Method requests audio stream by given URL. This call may take long time depends on URL.",
+                "tags": [
+                    "Stream API"
+                ],
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "path",
+                        "required": true,
+                        "description": "Base32 or URLBase64 encoded URL to youtube, vimeo...",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Stream meta inforamtion.",
+                        "schema": {
+                            "$ref": "#/definitions/InfoSuccess"
+                        }
+                    },
+                    "404": {
+                        "description": "Bad URL."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "InfoSuccess": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "stream": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "integer"
+                },
+                "cover": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+
