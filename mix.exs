@@ -19,7 +19,7 @@ defmodule TubeStreamer.Mixfile do
   def application do
     [
       mod: {TubeStreamer.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:lager, :logger, :runtime_tools]
     ]
   end
 
@@ -38,11 +38,12 @@ defmodule TubeStreamer.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext,             "~> 0.11"},
       {:cowboy,              "~> 1.0"},
-      {:distillery,          "~> 1.5"},
+      {:distillery,          "~> 2.0.0-pre"},
       {:phoenix_swagger,     "~> 0.6.4"},
       {:poolboy,             "~> 1.5"},
       {:exometer_core,       "~> 1.5.2"},
-      {:exometer_influxdb,   "~> 0.5.7"},
+      {:exometer_influxdb,   "~> 0.6.0"},
+      {:parse_trans,         "~> 3.2.0", override: true},
     ]
   end
 end
